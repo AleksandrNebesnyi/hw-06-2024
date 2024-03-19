@@ -31,3 +31,66 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+// const inputEl = document.querySelector('input');
+// const btnCreateEl= document.querySelector('button[data-create]');
+// const btnDestroyEl= document.querySelector('button[data-destroy]');
+// const containerEl = document.querySelector('#boxes');
+
+// btnCreateEl.addEventListener('click', onMakeMarkup);
+// btnDestroyEl.addEventListener('click', onDeleteMarkup);
+
+// function onMakeMarkup() {
+//     MakeMarkup(inputEl.value)
+//     inputEl.value="";
+// } 
+// function MakeMarkup(amount) {   
+//   onDeleteMarkup();
+//   for (let i = 0; i < amount; i +=1) {
+//     const box = document.createElement('div');
+//     box.classList.add('box');
+//     containerEl.insertAdjacentElement("beforeend", box)
+//     console.log(containerEl);
+// };
+// }
+
+
+
+
+
+
+
+const inputEl = document.querySelector('input');
+const btnCreateEl= document.querySelector('button[data-create]');
+const btnDestroyEl= document.querySelector('button[data-destroy]');
+const containerEl = document.querySelector('#boxes');
+
+btnCreateEl.addEventListener('click', onMakeMarkup);
+btnDestroyEl.addEventListener('click', onDeleteMarkup);
+
+function onMakeMarkup() {
+  createBoxes(inputEl.value)
+    inputEl.value="";
+} 
+
+ function onDeleteMarkup() {
+  console.log('Click delete');
+  containerEl.innerHTML='';
+ };
+
+
+
+ function createBoxes(amount) {
+  onDeleteMarkup(); // Clear existing boxes
+
+  let size = 30; // Initial size
+
+  for (let i = 0; i < amount; i +=1) {
+    const box = document.createElement('div');
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    containerEl.appendChild(box);
+    size += 10; // Increase size for the next box
+  }
+}

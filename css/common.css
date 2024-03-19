@@ -49,3 +49,13 @@ button {
 	object-fit: cover;
 
 }
+#box{
+  display: flex;
+}
+.box{
+  margin-bottom: 25px;
+  width: 250px;
+  height: 250px;
+  border: 2px dashed orangered;
+  background-color: rgb(228, 220, 245);
+}
